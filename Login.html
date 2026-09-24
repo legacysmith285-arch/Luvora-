@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Log In — Luvora</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff5f8;
+      color: #222;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 420px;
+      margin: 60px auto;
+    }
+
+    .logo {
+      text-align: center;
+      color: #ff3f78;
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 35px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 25px;
+      background: #ff3f78;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #ff3f78;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="logo">
+      Luvora ❤️
+    </div>
+
+    <div class="card">
+
+      <h1>Welcome Back</h1>
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Email address"
+      >
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+      >
+
+      <button onclick="login()">
+        Log In
+      </button>
+
+      <p id="message"></p>
+
+    </div>
+
+    <a class="back" href="index.html">
+      ← Back to Luvora
+    </a>
+
+  </div>
+
+  <script>
+    function login() {
+
+      const email =
+        document.getElementById("email").value.trim();
+
+      const password =
+        document.getElementById("password").value;
+
+      const message =
+        document.getElementById("message");
+
+      if (!email || !password) {
+        message.textContent =
+          "Please enter your email and password.";
+        message.style.color = "red";
+        return;
+      }
+
+      message.textContent =
+        "Login system coming next...";
+      message.style.color = "#ff3f78";
+    }
+  </script>
+
+</body>
+</html>
