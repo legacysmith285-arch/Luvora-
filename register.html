@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Luvora</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff4f81, #8e44ad);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 430px;
+      background: white;
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 34px;
+      font-weight: bold;
+      color: #e84375;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: #e84375;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #e84375;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #d63062;
+    }
+
+    .login {
+      text-align: center;
+      margin-top: 20px;
+      color: #666;
+    }
+
+    .login a {
+      color: #e84375;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .terms {
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+      margin: 15px 0;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="logo">Luvora ❤️</div>
+
+    <p class="subtitle">
+      Create your account and start connecting.
+    </p>
+
+    <form id="registerForm">
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Full name"
+        required
+      >
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Email address"
+        required
+      >
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Create password"
+        minlength="6"
+        required
+      >
+
+      <input
+        type="number"
+        id="age"
+        placeholder="Age"
+        min="18"
+        required
+      >
+
+      <select id="gender" required>
+        <option value="">Select gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+
+      <select id="country" required>
+        <option value="">Select country</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Ghana">Ghana</option>
+        <option value="South Africa">South Africa</option>
+        <option value="United States">United States</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Canada">Canada</option>
+        <option value="Italy">Italy</option>
+        <option value="France">France</option>
+        <option value="Germany">Germany</option>
+        <option value="Spain">Spain</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <p class="terms">
+        By joining Luvora, you agree to use the platform respectfully
+        and follow our community rules.
+      </p>
+
+      <button type="submit">
+        Create Account ❤️
+      </button>
+
+    </form>
+
+    <div class="login">
+      Already have an account?
+      <a href="login.html">Log in</a>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const age = document.getElementById("age").value;
+      const gender = document.getElementById("gender").value;
+      const country = document.getElementById("country").value;
+
+      localStorage.setItem("luvoraUser", JSON.stringify({
+        name: name,
+        email: email,
+        age: age,
+        gender: gender,
+        country: country
+      }));
+
+      alert("Welcome to Luvora ❤️ Your account has been created!");
+
+      window.location.href = "people.html";
+    });
+  </script>
+
+</body>
+</html>
