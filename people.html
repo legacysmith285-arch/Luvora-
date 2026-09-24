@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Explore People - Luvora</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f7f7f7;
+      color: #222;
+      padding-bottom: 75px;
+    }
+
+    /* Header */
+    header {
+      background: white;
+      padding: 15px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: #e84375;
+    }
+
+    .menu {
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* Welcome */
+    .welcome {
+      padding: 20px 18px 10px;
+    }
+
+    .welcome h1 {
+      font-size: 25px;
+      margin-bottom: 6px;
+    }
+
+    .welcome p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* Search */
+    .search {
+      padding: 12px 18px;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 13px 15px;
+      border: none;
+      border-radius: 25px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      font-size: 15px;
+      outline: none;
+    }
+
+    /* Filters */
+    .filters {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 5px 18px 15px;
+    }
+
+    .filter {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 20px;
+      padding: 9px 15px;
+      white-space: nowrap;
+      font-size: 13px;
+    }
+
+    /* Profiles */
+    .profiles {
+      padding: 0 15px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .profile {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .photo {
+      height: 210px;
+      background: linear-gradient(135deg, #ffd1dc, #d8b4fe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 65px;
+    }
+
+    .info {
+      padding: 12px;
+    }
+
+    .info h2 {
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .location {
+      color: #777;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .bio {
+      color: #555;
+      font-size: 12px;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .connect {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 9px;
+      background: #e84375;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .connect:hover {
+      background: #d63062;
+    }
+
+    /* Bottom navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 65px;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+      z-index: 20;
+    }
+
+    .nav-item {
+      text-align: center;
+      color: #777;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .nav-item span {
+      display: block;
+      font-size: 23px;
+      margin-bottom: 2px;
+    }
+
+    .nav-item.active {
+      color: #e84375;
+      font-weight: bold;
+    }
+
+    @media (max-width: 380px) {
+      .profiles {
+        grid-template-columns: 1fr;
+      }
+
+      .photo {
+        height: 240px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Luvora ❤️</div>
+    <div class="menu">☰</div>
+  </header>
+
+  <!-- Welcome -->
+  <section class="welcome">
+    <h1>Discover People 💕</h1>
+    <p>Meet interesting people and make meaningful connections.</p>
+  </section>
+
+  <!-- Search -->
+  <div class="search">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search by name or country..."
+      onkeyup="searchProfiles()"
+    >
+  </div>
+
+  <!-- Filters -->
+  <div class="filters">
+    <div class="filter">🌍 Worldwide</div>
+    <div class="filter">❤️ Dating</div>
+    <div class="filter">👫 Friendship</div>
+    <div class="filter">🎓 Students</div>
+  </div>
+
+  <!-- Profiles -->
+  <section class="profiles" id="profiles">
+
+    <div class="profile" data-name="Sophia" data-country="Italy">
+      <div class="photo">👩🏻</div>
+
+      <div class="info">
+        <h2>Sophia, 22</h2>
+        <div class="location">📍 Italy</div>
+        <div class="bio">
+          I love traveling, music and meeting new people.
+        </div>
+
+        <button class="connect" onclick="connect('Sophia')">
+          ❤️ Connect
+        </button>
+      </div>
+    </div>
+
+
+    <div class="profile" data-name="Daniel" data-country="Nigeria">
+      <div class="photo">👨🏽</div>
+
+      <div class="info">
+        <h2>Daniel, 25</h2>
+        <div class="location">📍 Nigeria</div>
+        <div class="bio">
+          Football fan, entrepreneur and lover of good conversations.
+        </div>
+
+        <button class="connect" onclick="connect('Daniel')">
+          ❤️ Connect
+        </button>
+      </div>
+    </div>
+
+
+    <div class="profile" data-name="Emma" data-country="Canada">
+      <div class="photo">👩🏼</div>
+
+      <div class="info">
+        <h2>Emma, 24</h2>
+        <div class="location">📍 Canada</div>
+        <div class="bio">
+          Adventurous, friendly and always ready to discover something new.
+        </div>
+
+        <button class="connect" onclick="connect('Emma')">
+          ❤️ Connect
+        </button>
+      </div>
+    </div>
+
+
+    <div class="profile" data-name="Michael" data-country="United States">
+      <div class="photo">👨🏻</div>
+
+      <div class="info">
+        <h2>Michael, 27</h2>
+        <div class="location">📍 United States</div>
+        <div class="bio">
+          I enjoy technology, fitness and meeting people from around the world.
+        </div>
+
+        <button class="connect" onclick="connect('Michael')">
+          ❤️ Connect
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+
+    <div class="nav-item active">
+      <span>🏠</span>
+      Explore
+    </div>
+
+    <div class="nav-item" onclick="window.location.href='messages.html'">
+      <span>💬</span>
+      Messages
+    </div>
+
+    <div class="nav-item" onclick="window.location.href='profile.html'">
+      <span>👤</span>
+      Profile
+    </div>
+
+  </nav>
+
+
+  <script>
+
+    function connect(name) {
+      alert("You connected with " + name + " ❤️");
+    }
+
+
+    function searchProfiles() {
+
+      const input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+      const profiles = document.querySelectorAll(".profile");
+
+      profiles.forEach(function(profile) {
+
+        const name = profile
+          .getAttribute("data-name")
+          .toLowerCase();
+
+        const country = profile
+          .getAttribute("data-country")
+          .toLowerCase();
+
+        if (
+          name.includes(input) ||
+          country.includes(input)
+        ) {
+          profile.style.display = "block";
+        } else {
+          profile.style.display = "none";
+        }
+
+      });
+    }
+
+  </script>
+
+</body>
+</html>
