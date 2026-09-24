@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luvora Profile</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f7f7f7;
+      padding-bottom: 80px;
+    }
+
+    header {
+      background: white;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      color: #e84375;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .back {
+      color: #e84375;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 0 18px;
+    }
+
+    .profile-card {
+      background: white;
+      border-radius: 18px;
+      padding: 25px 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .avatar {
+      width: 105px;
+      height: 105px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffd1dc, #d8b4fe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 50px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+
+    .profile-subtitle {
+      text-align: center;
+      color: #777;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 17px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #e84375;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .save {
+      width: 100%;
+      padding: 15px;
+      background: #e84375;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .save:hover {
+      background: #d63062;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      color: #e84375;
+      font-weight: bold;
+      display: none;
+    }
+
+    /* Bottom navigation */
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 65px;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-item {
+      text-align: center;
+      color: #777;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .nav-item span {
+      display: block;
+      font-size: 23px;
+      margin-bottom: 2px;
+    }
+
+    .nav-item.active {
+      color: #e84375;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Luvora ❤️</div>
+
+    <div
+      class="back"
+      onclick="window.location.href='people.html'"
+    >
+      ← Explore
+    </div>
+  </header>
+
+
+  <div class="container">
+
+    <div class="profile-card">
+
+      <div class="avatar">
+        👤
+      </div>
+
+      <h1>My Profile</h1>
+
+      <p class="profile-subtitle">
+        Tell people a little about yourself.
+      </p>
+
+
+      <form id="profileForm">
+
+        <label for="name">Full Name</label>
+
+        <input
+          type="text"
+          id="name"
+          placeholder="Your full name"
+          required
+        >
+
+
+        <label for="age">Age</label>
+
+        <input
+          type="number"
+          id="age"
+          placeholder="Your age"
+          min="18"
+          required
+        >
+
+
+        <label for="gender">Gender</label>
+
+        <select id="gender" required>
+
+          <option value="">
+            Select gender
+          </option>
+
+          <option value="Male">
+            Male
+          </option>
+
+          <option value="Female">
+            Female
+          </option>
+
+        </select>
+
+
+        <label for="country">Country</label>
+
+        <select id="country" required>
+
+          <option value="">
+            Select country
+          </option>
+
+          <option value="Nigeria">
+            Nigeria
+          </option>
+
+          <option value="Ghana">
+            Ghana
+          </option>
+
+          <option value="South Africa">
+            South Africa
+          </option>
+
+          <option value="United States">
+            United States
+          </option>
+
+          <option value="United Kingdom">
+            United Kingdom
+          </option>
+
+          <option value="Canada">
+            Canada
+          </option>
+
+          <option value="Italy">
+            Italy
+          </option>
+
+          <option value="France">
+            France
+          </option>
+
+          <option value="Germany">
+            Germany
+          </option>
+
+          <option value="Spain">
+            Spain
+          </option>
+
+          <option value="Other">
+            Other
+          </option>
+
+        </select>
+
+
+        <label for="interests">
+          Interests
+        </label>
+
+        <input
+          type="text"
+          id="interests"
+          placeholder="Music, football, travel..."
+        >
+
+
+        <label for="bio">
+          About Me
+        </label>
+
+        <textarea
+          id="bio"
+          placeholder="Write something about yourself..."
+          maxlength="500"
+        ></textarea>
+
+
+        <button
+          class="save"
+          type="submit"
+        >
+          Save Profile ❤️
+        </button>
+
+        <div
+          class="message"
+          id="message"
+        >
+          Profile saved successfully!
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <nav class="bottom-nav">
+
+    <div
+      class="nav-item"
+      onclick="window.location.href='people.html'"
+    >
+      <span>🏠</span>
+      Explore
+    </div>
+
+    <div
+      class="nav-item"
+      onclick="window.location.href='messages.html'"
+    >
+      <span>💬</span>
+      Messages
+    </div>
+
+    <div class="nav-item active">
+      <span>👤</span>
+      Profile
+    </div>
+
+  </nav>
+
+
+  <script>
+
+    // Load previously saved profile information
+
+    const savedProfile =
+      JSON.parse(localStorage.getItem("luvoraUser"));
+
+    if (savedProfile) {
+
+      document.getElementById("name").value =
+        savedProfile.name || "";
+
+      document.getElementById("age").value =
+        savedProfile.age || "";
+
+      document.getElementById("gender").value =
+        savedProfile.gender || "";
+
+      document.getElementById("country").value =
+        savedProfile.country || "";
+
+    }
+
+
+    // Save profile
+
+    document
+      .getElementById("profileForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const profile = {
+
+          name:
+            document.getElementById("name").value,
+
+          age:
+            document.getElementById("age").value,
+
+          gender:
+            document.getElementById("gender").value,
+
+          country:
+            document.getElementById("country").value,
+
+          interests:
+            document.getElementById("interests").value,
+
+          bio:
+            document.getElementById("bio").value
+
+        };
+
+
+        localStorage.setItem(
+          "luvoraUser",
+          JSON.stringify(profile)
+        );
+
+
+        const message =
+          document.getElementById("message");
+
+        message.style.display = "block";
+
+        setTimeout(function() {
+
+          message.style.display = "none";
+
+        }, 3000);
+
+      });
+
+  </script>
+
+</body>
+</html>
